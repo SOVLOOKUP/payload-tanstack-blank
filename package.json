@@ -5,17 +5,17 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" payload build --disable-transpile",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation vite dev",
-    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation vite dev",
-    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap --disable-transpile",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types --disable-transpile",
-    "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",
-    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload --disable-transpile",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation vite preview",
+    "build": "payload build --disable-transpile",
+    "dev": "vite dev",
+    "devsafe": "rm -rf .next && vite dev",
+    "generate:importmap": "payload generate:importmap --disable-transpile",
+    "generate:types": "payload generate:types --disable-transpile",
+    "lint": "eslint .",
+    "payload": "payload --disable-transpile",
+    "start": "vite preview",
     "test": "bun run test:int && bun run test:e2e",
-    "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" playwright test --config=playwright.config.ts",
-    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
+    "test:e2e": "playwright test --config=playwright.config.ts",
+    "test:int": "vitest run --config ./vitest.config.mts"
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "4.0.0-canary.28",
