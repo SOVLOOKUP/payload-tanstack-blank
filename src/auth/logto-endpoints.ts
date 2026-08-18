@@ -2,8 +2,14 @@ import { APIError } from 'payload'
 import { getSafeRedirect } from 'payload/shared'
 import type { Endpoint } from 'payload'
 
-import { clearLogtoCookie, createLogtoSession, logtoCookieHeader } from './logto.js'
-import { findOrCreateUserByLogtoClaims } from './logto-user.js'
+import { clearLogtoCookie, createLogtoSession, findOrCreateUserByLogtoClaims, logtoCookieHeader } from './logto.js'
+
+function redirectResponse(location: string, cookies: Map<string, string>): Response {
+  const headers = new Headers({ Location: location })
+  const cookieHeader = logtoCookieHeader(cookies)
+  if (cookieHeader) headers.set('Set-Cookie', cookieHeader)
+  return new Response(null, { status: 302, headers })
+}
 
 export const logtoSignInEndpoint: Endpoint = {
   path: '/logto/login',
@@ -12,31 +18,18 @@ export const logtoSignInEndpoint: Endpoint = {
     const { client, storage, cookies, getNavigateUrl } = createLogtoSession(req.headers)
     await storage.init()
 
-    const redirectUri = `${req.origin}/api/users/logto/callback`
-    const postRedirectUri = getSafeRedirect({
-      fallbackTo: `${req.origin}/admin`,
-      redirectTo: req.searchParams.get('redirect') || "",
-    })
-
     await client.signIn({
-      redirectUri,
-      postRedirectUri,
+      redirectUri: `${req.origin}/api/users/logto/callback`,
+      postRedirectUri: getSafeRedirect({
+        fallbackTo: `${req.origin}/admin`,
+        redirectTo: req.searchParams.get('redirect') || "",
+      }),
     })
 
     const navigateUrl = getNavigateUrl()
+    if (!navigateUrl) throw new APIError('Failed to start Logto sign-in', 500)
 
-    if (!navigateUrl) {
-      throw new APIError('Failed to start Logto sign-in', 500)
-    }
-
-    const headers = new Headers({ Location: navigateUrl })
-    const cookieHeader = logtoCookieHeader(cookies)
-
-    if (cookieHeader) {
-      headers.set('Set-Cookie', cookieHeader)
-    }
-
-    return new Response(null, { status: 302, headers })
+    return redirectResponse(navigateUrl, cookies)
   },
 }
 
@@ -57,14 +50,7 @@ export const logtoCallbackEndpoint: Endpoint = {
       redirectTo: getNavigateUrl() || "",
     })
 
-    const headers = new Headers({ Location: redirect })
-    const cookieHeader = logtoCookieHeader(cookies)
-
-    if (cookieHeader) {
-      headers.set('Set-Cookie', cookieHeader)
-    }
-
-    return new Response(null, { status: 302, headers })
+    return redirectResponse(redirect, cookies)
   },
 }
 
@@ -80,17 +66,10 @@ export const logtoLogoutEndpoint: Endpoint = {
       redirectTo: req.searchParams.get('redirect') || "",
     })
 
-    // Clear local Logto session without calling end-session endpoint,
-    // which requires the post-logout redirect URI to be registered in
-    // Logto Console (exact match, including trailing slash).
     client.clearAllTokens()
 
-    const headers = new Headers({
-      Location: postLogoutRedirectUri,
-    })
-    const cookieHeader = logtoCookieHeader(cookies) || clearLogtoCookie()
-    headers.set('Set-Cookie', cookieHeader)
-
+    const headers = new Headers({ Location: postLogoutRedirectUri })
+    headers.set('Set-Cookie', logtoCookieHeader(cookies) || clearLogtoCookie())
     return new Response(null, { status: 302, headers })
   },
 }

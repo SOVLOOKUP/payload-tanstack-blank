@@ -1,8 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-import { clearLogtoCookie } from '../auth/logto'
+import { clearLogtoCookie, logtoStrategy } from '../auth/logto'
 import { logtoCallbackEndpoint, logtoLogoutEndpoint, logtoSignInEndpoint } from '../auth/logto-endpoints'
-import { logtoStrategy } from '../auth/logto-strategy'
 
 export const Users: CollectionConfig = {
   slug: 'users',
