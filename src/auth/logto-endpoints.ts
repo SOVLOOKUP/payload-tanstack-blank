@@ -40,6 +40,7 @@ export const logtoCallbackEndpoint: Endpoint = {
     const { client, storage, cookies, getNavigateUrl } = createLogtoSession(req.headers)
     await storage.init()
 
+    if (!req.url) throw new APIError('Missing callback URL', 400)
     await client.handleSignInCallback(req.url)
 
     const claims = await client.getIdTokenClaims()

@@ -1,4 +1,5 @@
 import { createRouter } from '@tanstack/react-router'
+// @ts-expect-error - missing type declarations for this module
 import { payloadParseSearch, payloadStringifySearch } from '@payloadcms/tanstack-start/shared'
 
 import { routeTree } from './routeTree.gen'
