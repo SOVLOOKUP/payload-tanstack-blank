@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "payload build --disable-transpile",
-    "dev": "vite dev",
+    "dev": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" vite dev",
     "devsafe": "rm -rf .next && vite dev",
     "generate:importmap": "payload generate:importmap --disable-transpile",
     "generate:types": "payload generate:types --disable-transpile",
