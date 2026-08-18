@@ -5,30 +5,30 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" payload build",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" payload build --disable-transpile",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation vite dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation vite dev",
-    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap --disable-transpile",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types --disable-transpile",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",
-    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload --disable-transpile",
     "start": "cross-env NODE_OPTIONS=--no-deprecation vite preview",
     "test": "bun run test:int && bun run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" playwright test --config=playwright.config.ts",
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
   },
   "dependencies": {
-    "@payloadcms/db-sqlite": "4.0.0-canary.17",
-    "@payloadcms/graphql": "4.0.0-canary.17",
-    "@payloadcms/plugin-mcp": "4.0.0-canary.17",
-    "@payloadcms/richtext-lexical": "4.0.0-canary.17",
-    "@payloadcms/tanstack-start": "4.0.0-internal.183b315",
-    "@payloadcms/ui": "4.0.0-canary.17",
+    "@payloadcms/db-sqlite": "4.0.0-canary.28",
+    "@payloadcms/graphql": "4.0.0-canary.28",
+    "@payloadcms/plugin-mcp": "4.0.0-canary.28",
+    "@payloadcms/richtext-lexical": "4.0.0-canary.28",
+    "@payloadcms/tanstack-start": "4.0.0-canary.28",
+    "@payloadcms/ui": "4.0.0-canary.28",
     "@tanstack/react-router": "1.170.29",
     "@tanstack/react-start": "1.168.46",
     "cross-env": "10.1.0",
     "graphql": "^17.0.2",
-    "payload": "4.0.0-canary.17",
+    "payload": "4.0.0-canary.28",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "sass": "^1.102.0",
@@ -58,6 +58,7 @@
   "trustedDependencies": [
     "sharp",
     "esbuild",
-    "unrs-resolver"
+    "unrs-resolver",
+    "workerd"
   ]
 }

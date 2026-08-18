@@ -1,0 +1,9 @@
+[install]
+# 等价于原 .yarnrc 的 --install.ignore-engines
+ignoreEngines = true
+
+# 等价于原 .npmrc 的 legacy-peer-deps=true（bun 默认宽松，此处显式声明）
+strictPeerDependencies = false
+
+# 允许构建的原生模块（与 package.json trustedDependencies 一致，bunfig.toml 中也可声明）
+trustedDependencies = ["sharp", "esbuild", "unrs-resolver", "workerd"]
