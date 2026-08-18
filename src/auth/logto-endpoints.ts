@@ -72,7 +72,7 @@ export const logtoLogoutEndpoint: Endpoint = {
   path: '/logto/logout',
   method: 'get',
   handler: async (req) => {
-    const { client, storage, cookies } = createLogtoSession(req.headers)
+    const { client, storage, cookies, getNavigateUrl } = createLogtoSession(req.headers)
     await storage.init()
 
     const postLogoutRedirectUri = getSafeRedirect({
@@ -80,12 +80,10 @@ export const logtoLogoutEndpoint: Endpoint = {
       redirectTo: req.searchParams.get('redirect') || "",
     })
 
-    // Clear local Logto session without calling Logto's end-session endpoint
-    // (which requires the post-logout redirect URI to be registered in Logto Console)
-    await client.clearAllTokens()
+    await client.signOut(postLogoutRedirectUri)
 
     const headers = new Headers({
-      Location: postLogoutRedirectUri,
+      Location: getNavigateUrl() || postLogoutRedirectUri,
     })
     const cookieHeader = logtoCookieHeader(cookies) || clearLogtoCookie()
     headers.set('Set-Cookie', cookieHeader)
