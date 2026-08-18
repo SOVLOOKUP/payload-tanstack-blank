@@ -1,0 +1,20 @@
+.logto-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--theme-elevation-800);
+  text-decoration: none;
+  background: var(--theme-elevation-150);
+  border: 1px solid var(--theme-elevation-300);
+  border-radius: var(--style-radius-m);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--theme-elevation-200);
+  }
+}

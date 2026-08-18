@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './app/__root'
 import { Route as FrontendRouteImport } from './app/_frontend'
 import { Route as PayloadRouteImport } from './app/_payload'
 import { Route as FrontendIndexRouteImport } from './app/_frontend/index'
+import { Route as FrontendLoginRouteImport } from './app/_frontend/login'
 import { Route as PayloadAdminIndexRouteImport } from './app/_payload/admin.index'
 import { Route as PayloadAdminSplatRouteImport } from './app/_payload/admin.$'
 import { Route as PayloadApiSplatRouteImport } from './app/_payload/api.$'
@@ -27,6 +28,11 @@ const PayloadRoute = PayloadRouteImport.update({
 const FrontendIndexRoute = FrontendIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => FrontendRoute,
+} as any)
+const FrontendLoginRoute = FrontendLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => FrontendRoute,
 } as any)
 const PayloadAdminIndexRoute = PayloadAdminIndexRouteImport.update({
@@ -47,12 +53,14 @@ const PayloadApiSplatRoute = PayloadApiSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof FrontendIndexRoute
+  '/login': typeof FrontendLoginRoute
   '/admin/$': typeof PayloadAdminSplatRoute
   '/api/$': typeof PayloadApiSplatRoute
   '/admin/': typeof PayloadAdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof FrontendIndexRoute
+  '/login': typeof FrontendLoginRoute
   '/admin/$': typeof PayloadAdminSplatRoute
   '/api/$': typeof PayloadApiSplatRoute
   '/admin': typeof PayloadAdminIndexRoute
@@ -61,6 +69,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_frontend': typeof FrontendRouteWithChildren
   '/_payload': typeof PayloadRouteWithChildren
+  '/_frontend/login': typeof FrontendLoginRoute
   '/_frontend/': typeof FrontendIndexRoute
   '/_payload/admin/$': typeof PayloadAdminSplatRoute
   '/_payload/api/$': typeof PayloadApiSplatRoute
@@ -68,13 +77,14 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin/$' | '/api/$' | '/admin/'
+  fullPaths: '/' | '/login' | '/admin/$' | '/api/$' | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin/$' | '/api/$' | '/admin'
+  to: '/' | '/login' | '/admin/$' | '/api/$' | '/admin'
   id:
     | '__root__'
     | '/_frontend'
     | '/_payload'
+    | '/_frontend/login'
     | '/_frontend/'
     | '/_payload/admin/$'
     | '/_payload/api/$'
@@ -109,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FrontendIndexRouteImport
       parentRoute: typeof FrontendRoute
     }
+    '/_frontend/login': {
+      id: '/_frontend/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof FrontendLoginRouteImport
+      parentRoute: typeof FrontendRoute
+    }
     '/_payload/admin/': {
       id: '/_payload/admin/'
       path: '/admin'
@@ -134,10 +151,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface FrontendRouteChildren {
+  FrontendLoginRoute: typeof FrontendLoginRoute
   FrontendIndexRoute: typeof FrontendIndexRoute
 }
 
 const FrontendRouteChildren: FrontendRouteChildren = {
+  FrontendLoginRoute: FrontendLoginRoute,
   FrontendIndexRoute: FrontendIndexRoute,
 }
 

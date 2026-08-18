@@ -19,6 +19,9 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
+    components: {
+      afterLogin: ['@/components/admin/LogtoLoginButton'],
+    },
   },
   collections: [Users, Media, Folders, Tags],
   editor: lexicalEditor(),

@@ -18,6 +18,7 @@
     "test:int": "vitest run --config ./vitest.config.mts"
   },
   "dependencies": {
+    "@logto/node": "^3.1.10",
     "@payloadcms/db-sqlite": "4.0.0-canary.28",
     "@payloadcms/graphql": "4.0.0-canary.28",
     "@payloadcms/plugin-mcp": "4.0.0-canary.28",
@@ -27,6 +28,7 @@
     "@payloadcms/ui": "4.0.0-canary.28",
     "@tanstack/react-router": "1.170.29",
     "@tanstack/react-start": "1.168.46",
+    "cookie": "1.0.2",
     "cross-env": "10.1.0",
     "graphql": "^17.0.2",
     "payload": "4.0.0-canary.28",
