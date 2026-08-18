@@ -49,7 +49,7 @@ export function createLogtoSession(headers: Headers): LogtoSession {
     cookieKey: logtoCookieKey,
     getCookie: (name) => requestCookies[name],
     setCookie: (name, value, options) => {
-      cookies.set(name, stringifySetCookie({ name, value }, options))
+      cookies.set(name, stringifySetCookie({ name, value, ...options }))
     },
   })
 
