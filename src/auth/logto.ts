@@ -29,7 +29,8 @@ export function logtoCookieHeader(cookies: Map<string, string>): string | undefi
 }
 
 export function clearLogtoCookie(): string {
-  return stringifySetCookie(logtoCookieKey, '', {
+  return stringifySetCookie({
+    name: logtoCookieKey, value: '',
     httpOnly: true,
     path: '/',
     sameSite: 'lax',
@@ -48,7 +49,7 @@ export function createLogtoSession(headers: Headers): LogtoSession {
     cookieKey: logtoCookieKey,
     getCookie: (name) => requestCookies[name],
     setCookie: (name, value, options) => {
-      cookies.set(name, stringifySetCookie(name, value, options))
+      cookies.set(name, stringifySetCookie({ name, value }, options))
     },
   })
 
