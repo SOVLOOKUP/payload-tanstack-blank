@@ -24,7 +24,7 @@
     "@payloadcms/graphql": "4.0.0-canary.28",
     "@payloadcms/plugin-mcp": "4.0.0-canary.28",
     "@payloadcms/richtext-lexical": "4.0.0-canary.28",
-    "@payloadcms/tanstack-start": "4.0.0-internal.183b315",
+    "@payloadcms/tanstack-start": "4.0.0-canary.28",
     "@payloadcms/translations": "4.0.0-canary.28",
     "@payloadcms/ui": "4.0.0-canary.28",
     "@tanstack/react-router": "1.170.30",

@@ -1,7 +1,7 @@
 import LogtoClient from '@logto/node'
 import { CookieStorage } from '@logto/node'
 import type { LogtoConfig } from '@logto/node'
-import { parse, serialize } from 'cookie'
+import { parseCookie, stringifySetCookie } from 'cookie'
 
 const isSecureCookie = process.env.LOGTO_COOKIE_SECURE
   ? process.env.LOGTO_COOKIE_SECURE === 'true'
@@ -29,7 +29,7 @@ export function logtoCookieHeader(cookies: Map<string, string>): string | undefi
 }
 
 export function clearLogtoCookie(): string {
-  return serialize(logtoCookieKey, '', {
+  return stringifySetCookie(logtoCookieKey, '', {
     httpOnly: true,
     path: '/',
     sameSite: 'lax',
@@ -39,7 +39,7 @@ export function clearLogtoCookie(): string {
 }
 
 export function createLogtoSession(headers: Headers): LogtoSession {
-  const requestCookies = parse(headers.get('cookie') ?? '')
+  const requestCookies = parseCookie(headers.get('cookie') ?? '')
   const cookies = new Map<string, string>()
 
   const storage = new CookieStorage({
@@ -48,7 +48,7 @@ export function createLogtoSession(headers: Headers): LogtoSession {
     cookieKey: logtoCookieKey,
     getCookie: (name) => requestCookies[name],
     setCookie: (name, value, options) => {
-      cookies.set(name, serialize(name, value, options))
+      cookies.set(name, stringifySetCookie(name, value, options))
     },
   })
 

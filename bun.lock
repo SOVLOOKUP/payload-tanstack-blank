@@ -10,7 +10,7 @@
         "@payloadcms/graphql": "4.0.0-canary.28",
         "@payloadcms/plugin-mcp": "4.0.0-canary.28",
         "@payloadcms/richtext-lexical": "4.0.0-canary.28",
-        "@payloadcms/tanstack-start": "4.0.0-internal.183b315",
+        "@payloadcms/tanstack-start": "4.0.0-canary.28",
         "@payloadcms/translations": "4.0.0-canary.28",
         "@payloadcms/ui": "4.0.0-canary.28",
         "@tanstack/react-router": "1.170.30",
@@ -441,7 +441,7 @@
 
     "@payloadcms/richtext-lexical": ["@payloadcms/richtext-lexical@4.0.0-canary.28", "", { "dependencies": { "@lexical/clipboard": "0.48.0", "@lexical/headless": "0.48.0", "@lexical/html": "0.48.0", "@lexical/link": "0.48.0", "@lexical/list": "0.48.0", "@lexical/mark": "0.48.0", "@lexical/markdown": "0.48.0", "@lexical/react": "0.48.0", "@lexical/rich-text": "0.48.0", "@lexical/selection": "0.48.0", "@lexical/table": "0.48.0", "@lexical/utils": "0.48.0", "@payloadcms/translations": "4.0.0-canary.28", "@payloadcms/ui": "4.0.0-canary.28", "acorn": "8.16.0", "bson-objectid": "2.0.4", "csstype": "3.2.3", "dequal": "2.0.3", "escape-html": "1.0.3", "jsox": "1.2.125", "lexical": "0.48.0", "mdast-util-from-markdown": "2.0.3", "mdast-util-mdx-jsx": "3.2.0", "micromark-extension-mdx-jsx": "3.0.2", "qs-esm": "8.0.1", "react-error-boundary": "6.1.1", "ts-essentials": "10.0.3", "uuid": "14.0.0" }, "peerDependencies": { "@faceless-ui/modal": "3.0.1", "@faceless-ui/scroll-info": "2.0.0", "payload": "4.0.0-canary.28", "react": "^19.0.1 || ^19.1.2 || ^19.2.1", "react-dom": "^19.0.1 || ^19.1.2 || ^19.2.1" } }, "sha512-wcGn7stPkksPEB9ZqVGUJkhU4rfgOC1j9LvvC1EmCuFXDZfH/6gOuXJB3TY/goD1/s/D9qoAaEJTzm3jXBSC5g=="],
 
-    "@payloadcms/tanstack-start": ["@payloadcms/tanstack-start@4.0.0-internal.183b315", "", { "dependencies": { "@payloadcms/translations": "4.0.0-internal.183b315", "@payloadcms/ui": "4.0.0-internal.183b315", "qs-esm": "^7.0.2" }, "peerDependencies": { "@tanstack/react-router": "^1.120.0", "@tanstack/react-start": "^1.120.0", "@vitejs/plugin-react": "^6.0.0", "payload": "4.0.0-beta.0", "react": "^19.0.0", "react-dom": "^19.0.0", "vite": ">=8.0.0" }, "optionalPeers": ["@vitejs/plugin-react", "vite"] }, "sha512-qaAAxPIT39aWFwsH7H+7IfxPMKJbew4kCKej5wVrgYpRVv+6EGCCZsCpVnavisKM8y3GpAp0JqzXG0T446RUQg=="],
+    "@payloadcms/tanstack-start": ["@payloadcms/tanstack-start@4.0.0-canary.28", "", { "dependencies": { "@payloadcms/translations": "4.0.0-canary.28", "@payloadcms/ui": "4.0.0-canary.28", "qs-esm": "^7.0.2" }, "peerDependencies": { "@tanstack/react-router": "^1.120.0", "@tanstack/react-start": "^1.168.26", "@vitejs/plugin-react": "^6.0.0", "@vitejs/plugin-rsc": "^0.5.21", "payload": "4.0.0-canary.28", "react": "^19.0.0", "react-dom": "^19.0.0", "vite": ">=8.0.0" }, "optionalPeers": ["@vitejs/plugin-react", "@vitejs/plugin-rsc", "vite"] }, "sha512-ODhUkkzXg0TWiLwv63tMCGn/h0sdQqChIddtDRI3K1P43m6UmisV2l6z4fwYf0hKqc5oYxp+MJD+umIeQtDs6w=="],
 
     "@payloadcms/translations": ["@payloadcms/translations@4.0.0-canary.28", "", { "dependencies": { "date-fns": "4.1.0" } }, "sha512-V5+SKiuDwe5MaKpjwDmFr2TulE0qEpa47uDzDyTRkbHPQVBxta6jZWxGTvgnwxwqi/nDmn/qx12jwrzgghY5Cg=="],
 
@@ -1431,10 +1431,6 @@
 
     "@payloadcms/plugin-mcp/tsx": ["tsx@4.22.4", "", { "dependencies": { "esbuild": "~0.28.0" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "bin": { "tsx": "dist/cli.mjs" } }, "sha512-X8EX+XV4QR5xCsrgxaED954zTDfY8KqlDtskKEL0cHhyS/P8b4IFOvGDQpsC9Q1XnLq915wEfwwY/zzskCtmhg=="],
 
-    "@payloadcms/tanstack-start/@payloadcms/translations": ["@payloadcms/translations@4.0.0-internal.183b315", "", { "dependencies": { "date-fns": "4.1.0" } }, "sha512-E28VMFHEgcrqD07LPOfNNZzTLxSKiNlyQ4xjdCf/YiJgUu/kTxqO8xcEvcnbzi9MCzLvF5V1JFPQrxQbBz6TYQ=="],
-
-    "@payloadcms/tanstack-start/@payloadcms/ui": ["@payloadcms/ui@4.0.0-internal.183b315", "", { "dependencies": { "@date-fns/tz": "1.2.0", "@dnd-kit/core": "6.3.1", "@dnd-kit/modifiers": "9.0.0", "@dnd-kit/sortable": "10.0.0", "@dnd-kit/utilities": "3.2.2", "@faceless-ui/modal": "3.0.0", "@faceless-ui/scroll-info": "2.0.0", "@faceless-ui/window-info": "3.0.1", "@monaco-editor/react": "4.7.0", "@payloadcms/translations": "4.0.0-internal.183b315", "bson-objectid": "2.0.4", "date-fns": "4.1.0", "dequal": "2.0.3", "md5": "2.3.0", "object-to-formdata": "4.5.1", "path-to-regexp": "6.3.0", "qs-esm": "8.0.1", "react-datepicker": "7.6.0", "react-image-crop": "10.1.8", "react-select": "5.9.0", "scheduler": "0.25.0", "sonner": "^1.7.2", "ts-essentials": "10.0.3", "use-context-selector": "2.0.0", "uuid": "14.0.0" }, "peerDependencies": { "payload": "4.0.0-internal.183b315", "react": "^19.0.1 || ^19.1.2 || ^19.2.1", "react-dom": "^19.0.1 || ^19.1.2 || ^19.2.1" } }, "sha512-FoYz0fsPWTeZayLSvyW5LH/CmtXQ2KFm6YBfhKwt+SBVB6LsrfiamURhvCTpcqi1F5P+18gI0MNFKTZ9OU0Odw=="],
-
     "@payloadcms/tanstack-start/qs-esm": ["qs-esm@7.0.3", "", {}, "sha512-8jbjCR0PPbqoQcv83C2K/zvVeytRPwPpt3WPDbq51qyLAxcWGtXVRjSe6GHtLCoVbg9+NEFkv7GyUxqjcDIJzw=="],
 
     "@tanstack/start-plugin-core/@babel/code-frame": ["@babel/code-frame@7.27.1", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.27.1", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg=="],
@@ -1520,10 +1516,6 @@
     "@esbuild-kit/core-utils/esbuild/@esbuild/win32-ia32": ["@esbuild/win32-ia32@0.18.20", "", { "os": "win32", "cpu": "ia32" }, "sha512-Wv7QBi3ID/rROT08SABTS7eV4hX26sVduqDOTe1MvGMjNd3EjOz4b7zeexIR62GTIEKrfJXKL9LFxTYgkyeu7g=="],
 
     "@esbuild-kit/core-utils/esbuild/@esbuild/win32-x64": ["@esbuild/win32-x64@0.18.20", "", { "os": "win32", "cpu": "x64" }, "sha512-kTdfRcSiDfQca/y9QIkng02avJ+NCaQvrMejlsB3RRv5sE9rRoeBPISaZpKxHELzRxZyLvNts1P27W3wV+8geQ=="],
-
-    "@payloadcms/tanstack-start/@payloadcms/ui/@faceless-ui/modal": ["@faceless-ui/modal@3.0.0", "", { "dependencies": { "body-scroll-lock": "4.0.0-beta.0", "focus-trap": "7.5.4", "react-transition-group": "4.4.5" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-o3oEFsot99EQ8RJc1kL3s/nNMHX+y+WMXVzSSmca9L0l2MR6ez2QM1z1yIelJX93jqkLXQ9tW+R9tmsYa+O4Qg=="],
-
-    "@payloadcms/tanstack-start/@payloadcms/ui/qs-esm": ["qs-esm@8.0.1", "", {}, "sha512-eZ7l+0ZVy3He9c85pEM9KEBR9DFA4jrmWvIjm9wpcHvScwc/vgZDl2TNOF0pm0JsWKw24XBUZOY0Wxn7/nvJnw=="],
 
     "@tanstack/start-plugin-core/@babel/code-frame/js-tokens": ["js-tokens@4.0.0", "", {}, "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="],
 
