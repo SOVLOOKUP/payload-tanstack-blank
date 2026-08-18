@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "payload build --disable-transpile",
-    "dev": "bun --bun vite dev",
+    "dev": "vite dev",
     "devsafe": "rm -rf .next && vite dev",
     "generate:importmap": "payload generate:importmap --disable-transpile",
     "generate:types": "payload generate:types --disable-transpile",
