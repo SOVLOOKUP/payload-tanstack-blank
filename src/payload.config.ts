@@ -1,6 +1,8 @@
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { mcpPlugin } from '@payloadcms/plugin-mcp'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { en } from '@payloadcms/translations/languages/en'
+import { zh } from '@payloadcms/translations/languages/zh'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -29,6 +31,13 @@ export default buildConfig({
       url: process.env.DATABASE_URL || '',
     },
   }),
+  i18n: {
+    fallbackLanguage: 'en',
+    supportedLanguages: {
+      en,
+      zh,
+    },
+  },
   sharp,
   localization: {
     locales: ['en'],
