@@ -34,7 +34,7 @@ LOGTO_APP_SECRET=your-app-secret
 LOGTO_COOKIE_SECRET=至少32位字符
 ```
 
-使用 bun 运行时启动（解决 lexical 兼容性问题）：
+使用 bun 运行时启动：
 
 ```bash
 bun dev

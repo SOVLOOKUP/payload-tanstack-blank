@@ -34,7 +34,7 @@ LOGTO_APP_SECRET=your-app-secret
 LOGTO_COOKIE_SECRET=at-least-32-characters-long
 ```
 
-Run with bun runtime (required for lexical compatibility):
+Run with bun runtime:
 
 ```bash
 bun dev
