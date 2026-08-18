@@ -37,7 +37,7 @@ LOGTO_COOKIE_SECRET=至少32位字符
 使用 bun 运行时启动（解决 lexical 兼容性问题）：
 
 ```bash
-bun --bun dev
+bun dev
 ```
 
 ## Logto 配置
@@ -79,4 +79,3 @@ src/
 ## 已知问题
 
 - `@lexical/react` 存在 ESM 循环依赖，bun 1.3.x 无法处理。`postinstall` 脚本会自动 patch。
-- 使用 `bun --bun dev` 启动（避免 Node.js OOM 问题）。

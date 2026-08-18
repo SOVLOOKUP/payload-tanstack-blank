@@ -37,7 +37,7 @@ LOGTO_COOKIE_SECRET=at-least-32-characters-long
 Run with bun runtime (required for lexical compatibility):
 
 ```bash
-bun --bun dev
+bun dev
 ```
 
 ## Logto Setup
@@ -79,4 +79,3 @@ src/
 ## Known Issues
 
 - `@lexical/react` has an ESM circular dependency that bun 1.3.x can't resolve. The `postinstall` script patches it automatically.
-- Use `bun --bun dev` to run with bun runtime (avoids Node.js OOM issues).
