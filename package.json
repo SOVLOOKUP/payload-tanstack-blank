@@ -13,7 +13,7 @@
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation vite preview",
-    "test": "pnpm run test:int && pnpm run test:e2e",
+    "test": "bun run test:int && bun run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" playwright test --config=playwright.config.ts",
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
   },
@@ -22,45 +22,42 @@
     "@payloadcms/graphql": "4.0.0-canary.17",
     "@payloadcms/plugin-mcp": "4.0.0-canary.17",
     "@payloadcms/richtext-lexical": "4.0.0-canary.17",
-    "@payloadcms/tanstack-start": "4.0.0-canary.17",
+    "@payloadcms/tanstack-start": "4.0.0-internal.183b315",
     "@payloadcms/ui": "4.0.0-canary.17",
-    "@tanstack/react-router": "1.170.16",
-    "@tanstack/react-start": "1.168.26",
+    "@tanstack/react-router": "1.170.29",
+    "@tanstack/react-start": "1.168.46",
     "cross-env": "10.1.0",
-    "dotenv": "16.4.7",
-    "graphql": "^16.8.1",
+    "graphql": "^17.0.2",
     "payload": "4.0.0-canary.17",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
-    "sass": "^1.101.0",
-    "sharp": "0.34.2",
-    "vite": "^8.0.0"
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sass": "^1.102.0",
+    "sharp": "0.35.3",
+    "vite": "^8.2.1"
   },
   "devDependencies": {
-    "@playwright/test": "1.59.1",
-    "@testing-library/react": "16.3.0",
-    "@types/node": "24.12.3",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.3",
-    "@vitejs/plugin-rsc": "^0.5.26",
-    "eslint": "^9.16.0",
-    "jsdom": "28.0.0",
-    "prettier": "^3.4.2",
-    "tsx": "4.22.4",
-    "typescript": "6.0.3",
-    "vite-tsconfig-paths": "6.0.5",
-    "vitest": "4.1.6"
+    "@playwright/test": "1.62.1",
+    "@testing-library/react": "16.3.2",
+    "@types/bun": "^1.3.14",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.0.5",
+    "@vitejs/plugin-rsc": "^0.5.34",
+    "eslint": "^10.8.1",
+    "jsdom": "30.0.1",
+    "prettier": "^3.9.6",
+    "tsx": "4.23.12",
+    "typescript": "7.0.2",
+    "vite-tsconfig-paths": "6.1.1",
+    "vitest": "4.1.10"
   },
   "engines": {
-    "node": ">=24.15.0",
-    "pnpm": "^9 || ^10 || ^11"
+    "bun": "1.4.0"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "esbuild",
-      "unrs-resolver"
-    ]
-  }
+  "packageManager": "bun@1.4.0",
+  "trustedDependencies": [
+    "sharp",
+    "esbuild",
+    "unrs-resolver"
+  ]
 }

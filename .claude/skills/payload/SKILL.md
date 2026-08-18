@@ -42,9 +42,9 @@ Payload is a Next.js native CMS with TypeScript-first architecture, providing ad
 ## Quick Start
 
 ```bash
-npx create-payload-app@latest my-app
+bun create create-payload-app@latest my-app
 cd my-app
-pnpm dev
+bun dev
 ```
 
 ### Minimal Config
