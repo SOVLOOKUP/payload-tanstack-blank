@@ -17,12 +17,21 @@ export const loadAdminPageRSC = createServerFn({ method: 'GET' })
   .validator((data: LoadInput): LoadInput => data ?? {})
   .handler(async ({ data }) => {
     const { loadAdminPage } = await import('@payloadcms/tanstack-start/server')
-    return loadAdminPage({
-      config: await getConfig(),
-      importMap: await getImportMap(),
-      search: data.search,
-      splat: data._splat,
-    })
+    const { redirect } = await import('@tanstack/react-router')
+
+    try {
+      return await loadAdminPage({
+        config: await getConfig(),
+        importMap: await getImportMap(),
+        search: data.search,
+        splat: data._splat,
+      })
+    } catch (err) {
+      if (err instanceof Error && err.message.startsWith('redirect:')) {
+        throw redirect({ to: err.message.slice('redirect:'.length) })
+      }
+      throw err
+    }
   })
 
 export const getLayoutDataFn = createServerFn({ method: 'GET' }).handler(async () => {
